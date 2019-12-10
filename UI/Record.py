@@ -76,32 +76,32 @@ class Record:
         # Left sided box for controls
         self.leftBox = QFormLayout()
 
-        self.recordButton = QPushButton("Grabar")
+        self.recordButton = QPushButton("Record")
         self.recordButton.setEnabled(False)
         self.recordButton.clicked.connect(self.startRecord)
 
-        self.stopButton = QPushButton("Detener")
+        self.stopButton = QPushButton("Stop")
         self.stopButton.setEnabled(False)
         self.stopButton.clicked.connect(self.stopRecord)
 
         self.recordButtons = QGridLayout()
         self.recordButtons.addWidget( self.recordButton, 0, 0)
         self.recordButtons.addWidget( self.stopButton, 0, 1)
-        self.leftBox.addRow(QLabel("Controles de grabacion"))
+        self.leftBox.addRow(QLabel("Recording controls"))
         self.leftBox.addRow(self.recordButtons)
 
         self.route = QLineEdit()
         self.route.setReadOnly(True)
-        self.examine = QPushButton("Examinar")
+        self.examine = QPushButton("Examine")
         self.examine.clicked.connect(self.getFilename)
         folderButtons = QGridLayout()
         folderButtons.addWidget(self.route, 0, 0)
         folderButtons.addWidget(self.examine, 0, 1)
-        self.leftBox.addRow(QLabel("Carpeta de guardado"))
+        self.leftBox.addRow(QLabel("Save folder"))
         self.leftBox.addRow(folderButtons)
 
         # Sensors status
-        self.leftBox.addRow(QLabel("Estado de los sensores"))
+        self.leftBox.addRow(QLabel("Sensor status"))
         self.headsetState = HeadStatusWidget(self.setPlotGraphBySensor)
         self.leftBox.addRow(self.headsetState)
         self.headsetState.updateHeadsetStatus(None)
@@ -110,9 +110,9 @@ class Record:
         # Center sided box for signals
         self.centerBox = QFormLayout()
 
-        self.centerBox.addRow(QLabel("Estado de las senales"))
+        self.centerBox.addRow(QLabel("Signal status"))
 
-        self.returnToGraphs = QPushButton("Regresar")
+        self.returnToGraphs = QPushButton("Return")
         self.returnToGraphs.setVisible(False)
         self.returnToGraphs.clicked.connect(self.returnToGraphics)
         self.centerBox.addRow(self.returnToGraphs)

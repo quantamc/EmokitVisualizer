@@ -26,7 +26,7 @@ class Interface ( QTabWidget ):
         self.showMaximized()
 
     def tab1UI(self):
-        self.setTabText(0, "Grabar")
+        self.setTabText(0, "Record")
         self.tab1.setLayout( self.recordTab.setRecordTab() )
 
         self.timer = pg.QtCore.QTimer()
@@ -34,7 +34,7 @@ class Interface ( QTabWidget ):
         self.timer.start(10)
 
     def tab2UI(self):
-        self.setTabText(1, "Desde archivo")
+        self.setTabText(1, "From file")
         self.tab2.setLayout( self.fromFileTab.setFromFileTab() )
 
 def main():

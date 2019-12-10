@@ -55,23 +55,23 @@ class FromFile:
         # Folder selection buttons
         self.route = QLineEdit()
         self.route.setReadOnly(True)
-        self.examine = QPushButton("Examinar")
+        self.examine = QPushButton("Examine")
         self.examine.clicked.connect(self.getFilename)
 
         folderButtons = QGridLayout()
         folderButtons.addWidget(self.route, 0, 0)
         folderButtons.addWidget(self.examine, 0, 1)
-        self.leftBox.addRow(QLabel("Archivo escogido"))
+        self.leftBox.addRow(QLabel("From file"))
         self.leftBox.addRow(folderButtons)
 
         # Action selection buttons
-        self.startBtn = QPushButton("Iniciar")
+        self.startBtn = QPushButton("Start")
         self.startBtn.setEnabled(False)
         self.startBtn.clicked.connect(self.startReading)
-        self.stopBtn = QPushButton("Pausar")
+        self.stopBtn = QPushButton("Pause")
         self.stopBtn.setEnabled(False)
         self.stopBtn.clicked.connect(self.stopReading)
-        self.restartBtn = QPushButton("Reiniciar")
+        self.restartBtn = QPushButton("Restart")
         self.restartBtn.setEnabled(False)
         self.restartBtn.clicked.connect(self.restartReading)
 
@@ -83,7 +83,7 @@ class FromFile:
         self.leftBox.addRow(actionsButtons)
 
         # Sensors status
-        self.leftBox.addRow(QLabel("Estado de los sensores"))
+        self.leftBox.addRow(QLabel("Sensor status"))
 
         self.headsetState = HeadStatusWidget(self.setPlotGraphBySensor)
         self.leftBox.addRow(self.headsetState)
@@ -105,16 +105,16 @@ class FromFile:
     def setCenterBox(self):
         # Center sided box for signals
         self.centerBox = QFormLayout()
-        self.centerBox.addRow(QLabel("Estado de las senales"))
+        self.centerBox.addRow(QLabel("Signal status"))
 
         self.activeGraph = True
 
-        self.toggleGraph = QPushButton("Mapa de calor")
+        self.toggleGraph = QPushButton("Heat map")
         self.toggleGraph.setEnabled( False )
         self.toggleGraph.clicked.connect( self.toggleGraphics )
         self.centerBox.addRow( self.toggleGraph )
 
-        self.returnToGraphs = QPushButton("Regresar")
+        self.returnToGraphs = QPushButton("Return")
         self.returnToGraphs.setVisible(False)
         self.returnToGraphs.clicked.connect(self.returnToGraphics)
         self.centerBox.addRow(self.returnToGraphs)
@@ -134,12 +134,12 @@ class FromFile:
         if not self.activeGraph:
             self.plots.setVisible(False)
             self.heatmap.setVisible(True)
-            self.toggleGraph.setText("Graficas")
+            self.toggleGraph.setText("Graphics")
             self.activeGraph = True
         else:
             self.plots.setVisible(True)
             self.heatmap.setVisible(False)
-            self.toggleGraph.setText("Mapa de calor")
+            self.toggleGraph.setText("Heat map")
             self.activeGraph = False
 
     def returnToGraphics(self):
